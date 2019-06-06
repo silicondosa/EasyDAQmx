@@ -29,7 +29,7 @@ the [National Instruments website.](https://www.ni.com/dataacquisition/nidaqmx.h
 Documentation for the wrapper will be available soon.
 
 ## Legal
-EasyDAQmx is distributed under the MIT license.
+`EasyDAQmx` is distributed under the MIT license.
 
 DAQmx, and NI-DAQmx are trademarks of the National Instruments Corporation.
 
@@ -39,6 +39,6 @@ awarded to the National Instruments Corporation.
 Please check the `LICENCE` file for more legal information on ArduDAQmx.
 
 Location of additional legal information on National Instruments software:
-* Notices are located in the `<National Instruments>\_Legal Information and <National Instruments>` directories.
+* Notices are located in the `<National Instruments>\_Legal Information` and `<National Instruments>` directories.
 * EULAs are located in the `<National Instruments>\Shared\MDF\Legal\license` directory.
 * Review `<National Instruments>\_Legal Information.txt` for information on including legal information in installers built with NI products.
