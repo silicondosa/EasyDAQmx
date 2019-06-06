@@ -64,6 +64,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Users\tyros\codebase\EasyDAQmx\NI-DAQmx\include;C:\Users\tyros\codebase\EasyDAQmx\clinkedlist\include;C:\Users\tyros\codebase\EasyDAQmx\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\tyros\codebase\EasyDAQmx\NI-DAQmx\lib;C:\Users\tyros\codebase\EasyDAQmx\lib;$(LibraryPath)</LibraryPath>
+    <SourcePath>C:\Users\tyros\codebase\EasyDAQmx\clinkedlist\source;C:\Users\tyros\codebase\EasyDAQmx\source;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -98,6 +101,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="clinkedlist\include\cLinkedList.h" />
+    <ClInclude Include="include\macrodef.h" />
+    <ClInclude Include="include\msunistd.h" />
+    <ClInclude Include="include\stdafx.h" />
+    <ClInclude Include="include\targetver.h" />
+    <ClInclude Include="NI-DAQmx\include\ansi_c.h" />
+    <ClInclude Include="NI-DAQmx\include\NIDAQmx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="clinkedlist\source\cLinkedList.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="NI-DAQmx\lib\NIDAQmx.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
