@@ -102,6 +102,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="clinkedlist\include\cLinkedList.h" />
+    <ClInclude Include="include\EasyDAQmx.h" />
     <ClInclude Include="include\macrodef.h" />
     <ClInclude Include="include\msunistd.h" />
     <ClInclude Include="include\stdafx.h" />
@@ -111,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="clinkedlist\source\cLinkedList.c" />
+    <ClCompile Include="source\EasyDAQmx.c" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="NI-DAQmx\lib\NIDAQmx.lib" />

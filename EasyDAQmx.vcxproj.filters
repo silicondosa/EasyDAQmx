@@ -36,9 +36,15 @@
     <ClInclude Include="include\targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\EasyDAQmx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="clinkedlist\source\cLinkedList.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EasyDAQmx.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
