@@ -113,6 +113,7 @@
   <ItemGroup>
     <ClCompile Include="clinkedlist\source\cLinkedList.c" />
     <ClCompile Include="source\EasyDAQmx.c" />
+    <ClCompile Include="source\test.c" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="NI-DAQmx\lib\NIDAQmx.lib" />

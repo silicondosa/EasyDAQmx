@@ -47,6 +47,9 @@
     <ClCompile Include="source\EasyDAQmx.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="NI-DAQmx\lib\NIDAQmx.lib" />

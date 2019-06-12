@@ -9,10 +9,37 @@
 #include <stdafx.h>
 #include <targetver.h>
 
+//-----------------------------
+// EasyDAQmx Macro Declarations
+//-----------------------------
+
+// Macros defined to handle any errors that may be thrown
+#define EasyDAQmxErrChk(functionCall) if( functionCall < 0) goto EasyDAQmxErr; else
+#define NIDAQmxErrChk(functionCall) if( DAQmxFailed(error=(functionCall)) ) goto Error; else
+
+//NI-DAQmx max string size
+#define DAQMX_MAX_STR_LEN			255
+
+//DAQmx device constants
+#define DAQMX_MAX_DEV_CNT			14
+#define DAQMX_MAX_DEV_PREFIX_LEN	14
+#define DAQMX_DEF_DEV_PREFIX		"PXI1Slot"
+#define DAQMX_MAX_DEV_STR_LEN		DAQMX_MAX_DEV_PREFIX_LEN + 2
+
+//DAQmx pin constants
+#define DAQMX_MAX_PIN_CNT			32
+#define DAQMX_MAX_PIN_STR_LEN		16
+
+//-----------------------
+// EasyDAQmx TypeDef List
+//-----------------------
+
 /*!
 * Enumerates the list of possible status modes of the ArduDAQmx library as set in 'EasyDAQmxStatus'.
 */
 typedef enum _EasyDAQmxStatusMode {
+	/*! Indicates that EasyDAQmx library has been initialized.*/
+	STATUS_INIT = -2,
 	/*! EasyDAQmx configuration may be altered only in the preconfigure state.*/
 	STATUS_PRECONFIG = -1,
 	/*! States that the EasyDAQmx library has been configured. NI-DAQmx may now be setup.*/
@@ -41,13 +68,13 @@ typedef enum _EasyDAQmxErrorCode {
 	ERROR_NODEVICES = -2,
 	/*! Pin and task configuratoin may be altered only in the preconfigure state.*/
 	ERROR_NOTCONFIG = -1,
-	/*! States that the library has been configured.*/
+	/*! No error has occured.*/
 	ERROR_NONE = 0,
 }EasyDAQmxErrorCode;
 
 
 /*!
- * Defines the six types of I/O modes suported by this library.
+ * Defines the types of I/O modes suported by this library.
  */
 typedef enum _IOmode {
 	// Invalid I/O mode
@@ -74,14 +101,16 @@ typedef enum _IOmode {
 /*!
  * Possible I/O directions - Input and Output, defined for easy programming.
  */
-typedef enum _IO_DIRECTION {
+typedef enum _IO_Direction {
 	INPUT = 0,
-	OUTPUT = 1
-}IO_DIRECTION;
+	OUTPUT = 1,
+	INOUT = 2
+}IO_Direction;
 
 /*!
  * Some default values for NI-DAQmx.
  */
+/*
 typedef struct _NIdefaults {
 	float64 AImin = -10;
 	float64 AImax = 10;
@@ -110,12 +139,22 @@ typedef struct _NIdefaults {
 	float64 IOtimeout = 10.0;
 
 }NIdefaults;
+*/
 
-extern const unsigned short		DAQmxMaxDevCount;
-extern const unsigned short		DAQmxMaxPinCount;
+//------------------------------
+// EasyDAQmx Glabal Declarations
+//------------------------------
+extern char						*DAQmxDevPrefix;
 
 extern unsigned int				EasyDAQmxFirstEnumerate;
-extern long						NIDAQmxErrorCode;
+extern long						DAQmxErrorCode;
+
+//--------------------------------
+// EasyDAQmx Function Declarations
+//--------------------------------
+inline char* dev2string(char* strBuf, unsigned int devNum);
+char* pin2string(char* strbuf, unsigned int devNum, IOmode ioMode, unsigned int pinNum);
+
 
 #endif // !EASYDAQMX_H
 
